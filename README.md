@@ -1,7 +1,7 @@
 # Reinforcement_Learning
 Basic RL algorithms + Catalyst implementation
 
-Все конфиги с алгоритмами лежат здесь:
+Configs with algorithms:
 https://github.com/catalyst-team/catalyst/tree/master/examples/rl_gym
 
 
