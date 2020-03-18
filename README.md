@@ -1,67 +1,10 @@
 # Reinforcement_Learning
-Basic RL algorithms + Catalyst implementation
-
-Configs with algorithms:
-https://github.com/catalyst-team/catalyst/tree/master/examples/rl_gym
-
-
-
-CATALYST LunarLender example:
-
-1. System requirements – redis
-
-    `sudo apt install redis-server`
-
-2. Python requirements – OpenAI Gym box2d
-
-    ```bash
-    pip install gym['box2d']
-    ```
-
-3. Start DB service
-
-    ```bash
-    redis-server --port 12000
-    ```
+Implementations of 3 basic algorithms:
+    1. Reinforce with n trajectories
+    2. Advantage Actor Critic
+    3. Reinforce with Baseline (b(s) - function minimizing varince of gradient vector)
     
-4. Select config
+df_reinforce contains all the rewards and smoothed rewards over 10 episodes during learning reinforce
+df_reinforce_baseline contains all the rewards and smoothed rewards over 10 episodes during reinforce with baseline
 
-    ```bash
-    # DQN        – off-policy algorithm on discrete LunarLander
-    export CONFIG=./rl_gym/config_dqn.yml
-
-    # DDPG       – off-policy algorithm on continuous LunarLander
-    export CONFIG=./rl_gym/config_ddpg.yml
-    # SAC        – off-policy algorithm on continuous LunarLander
-    export CONFIG=./rl_gym/config_sac.yml
-    # TD3        – off-policy algorithm on continuous LunarLander
-    export CONFIG=./rl_gym/config_td3.yml
-
-    # PPO        – on-policy algorithm on discrete LunarLander
-    export CONFIG=./rl_gym/config_ppo_discrete.yml
-    # PPO        – on-policy algorithm on continuous LunarLander
-    export CONFIG=./rl_gym/config_ppo_continuous.yml
-    # REINFORCE  – on-policy algorithm on discrete LunarLander
-    export CONFIG=./rl_gym/config_reinforce_discrete.yml
-    # REINFORCE  – on-policy algorithm on continuous LunarLander
-    export CONFIG=./rl_gym/config_reinforce_continuous.yml
-    ```
-
-3. Run trainer
-
-    ```bash
-    export GPUS=""  # like GPUS="0" or GPUS="0,1" for multi-gpu training
-    CUDA_VISIBLE_DEVICES="$GPUS" catalyst-rl run-trainer --config="$CONFIG"
-    ```
-
-4. Run samplers
-
-    ```bash
-    CUDA_VISIBLE_DEVICES="" catalyst-rl run-samplers --config="$CONFIG"
-    ```
-
-5. For logs visualization, use
-
-    ```bash
-    CUDA_VISIBLE_DEVICE="" tensorboard --logdir=./logs
-    ```
+Notebook 'Visualizations' includes useful charts for comparison
